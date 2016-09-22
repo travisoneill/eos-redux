@@ -3,7 +3,7 @@ module.exports = {
   context: __dirname,
   entry: './frontend/index.jsx',
   output: {
-    path: path.join(__dirname),
+    path: path.join(__dirname, 'public', 'javascripts'),
     filename: 'bundle.js'
   },
   resolve: {
@@ -22,6 +22,10 @@ module.exports = {
       {
         test: /\.node$/,
         loader: 'node-loader'
+      },
+      {
+        test: [/\.css?$/],
+        loader: "style-loader!css-loader"
       }
     ]
   },
